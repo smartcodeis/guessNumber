@@ -141,6 +141,16 @@ function renderGameState(gameState) {
         UI.setRoomStatus(
             "Both players are ready!"
         );
+    } else if (gameState.opponentReady) {
+        
+        UI.setRoomStatus(
+            "Opponent is ready! Waiting for you."
+        );
+    } else {
+
+        UI.setRoomStatus(
+            "Waiting for opponent..."
+        );
     }
 
 
@@ -163,6 +173,21 @@ function renderGameState(gameState) {
                 gameState.lastResult
             );
         }
+    } else {
+
+        UI.showScreen(
+            "roomScreen"
+        );
+
+        
+        document.getElementById(
+            "secretInput"
+        ).disabled = gameState.myReady;
+
+
+        document.getElementById(
+            "readyBtn"
+        ).disabled = gameState.myReady;
     }
 }
 
@@ -491,7 +516,7 @@ document
 
             UI.hideGameOver();
 
-            resetGame();
+            state.game.playAgain();
         }
     );
 
