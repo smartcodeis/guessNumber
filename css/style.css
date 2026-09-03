@@ -317,6 +317,13 @@ input::placeholder {
     font-size: 18px;
 }
 
+.secret-display {
+    font-size: 14px;
+    color: #00d084;
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
 .player-card.active-player {
     border-color: #6c63ff;
 }
