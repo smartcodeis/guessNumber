@@ -58,6 +58,8 @@ export class Game {
             type: "player-ready"
         });
 
+        this.tryStart();
+
         this.update();
     }
 
