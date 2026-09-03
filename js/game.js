@@ -153,6 +153,13 @@ export class Game {
                 break;
 
 
+            case "play-again":
+
+                this.resetForRematch();
+
+                break;
+
+
             case "game-over":
 
                 this.gameOver = true;
@@ -363,6 +370,8 @@ export class Game {
         if (this.onUpdate) {
 
             this.onUpdate({
+                secret: this.secret,
+
                 myReady: this.myReady,
 
                 opponentReady: this.opponentReady,
@@ -380,6 +389,23 @@ export class Game {
         }
     }
 
+
+    playAgain() {
+        this.send({ type: "play-again" });
+        this.resetForRematch();
+    }
+
+    resetForRematch() {
+        this.secret = null;
+        this.myReady = false;
+        this.opponentReady = false;
+        this.gameStarted = false;
+        this.gameOver = false;
+        this.currentTurn = "player1";
+        this.history = [];
+        this.lastResult = null;
+        this.update();
+    }
 
     reset() {
 
