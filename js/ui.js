@@ -139,6 +139,15 @@ export const UI = {
             );
 
 
+        const mySecretDisplay =
+            document.getElementById("mySecretDisplay");
+
+        if (mySecretDisplay) {
+            mySecretDisplay.textContent =
+                `Secret: ${state.secret || "---"}`;
+        }
+
+
         document
             .getElementById("opponentPlayerCard")
             .classList.toggle(
