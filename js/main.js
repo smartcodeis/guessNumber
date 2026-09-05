@@ -54,7 +54,8 @@ function createGame() {
 
                 UI.showGameOver(
                     result.won,
-                    result.guess
+                    result.guess,
+                    result.opponentSecret
                 );
             }
         });
@@ -172,6 +173,10 @@ function renderGameState(gameState) {
             UI.showResult(
                 gameState.lastResult
             );
+
+        } else {
+
+            UI.hideResult();
         }
     } else {
 
