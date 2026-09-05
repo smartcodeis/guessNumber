@@ -148,6 +148,8 @@ export class Game {
 
                 this.currentTurn = message.player;
 
+                this.lastResult = null;
+
                 this.update();
 
                 break;
@@ -168,7 +170,8 @@ export class Game {
 
                 this.onFinish({
                     won: message.winner === this.playerId,
-                    guess: message.guess
+                    guess: message.guess,
+                    opponentSecret: message.winnerSecret
                 });
 
                 break;
@@ -289,6 +292,8 @@ export class Game {
                 winner: this.playerId,
 
                 guess: message.guess,
+
+                winnerSecret: this.secret,
 
                 reason: "exact"
             });
