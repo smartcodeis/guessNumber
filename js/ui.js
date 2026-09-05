@@ -289,7 +289,7 @@ export const UI = {
     },
 
 
-    showGameOver(won, guess) {
+    showGameOver(won, guess, opponentSecret) {
 
         const modal =
             document.getElementById(
@@ -322,8 +322,12 @@ export const UI = {
             title.textContent =
                 "YOU LOSE";
 
+            const secretInfo = opponentSecret
+                ? ` The opponent's number was ${opponentSecret}.`
+                : "";
+
             text.textContent =
-                `Your opponent guessed ${guess}.`;
+                `Your opponent guessed ${guess}.${secretInfo}`;
         }
 
 
